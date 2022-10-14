@@ -1,0 +1,116 @@
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 80px;
+	font-size: 14px;
+	color: #213f7d;
+	background: #ffffff;
+	border-bottom: 2px solid rgba(123, 123, 123, 0.04);
+
+	.wrapper {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		padding: 20px;
+
+		.logo {
+			display: flex;
+			align-items: center;
+			gap: 1px;
+
+			.union {
+				height: 30px;
+				width: 30px;
+				left: 30px;
+				top: 36px;
+			}
+
+			.lendsqr {
+				height: 30px;
+				width: 100px;
+				left: 59px;
+				top: 35px;
+			}
+		}
+
+		.search {
+			display: flex;
+			align-items: center;
+			background-color: #ffffff;
+			height: 40px;
+			width: 400px;
+			border-radius: 8px;
+			border: 0.5px solid #21407d43;
+			border-radius: 8px;
+
+			input {
+				width: 100%;
+				outline: none;
+				background-color: #ffffff;
+				height: 30px;
+				border: 0px;
+				font-size: 14px;
+				color: #545f7d;
+
+				opacity: 0.7;
+			}
+			.iconContainer {
+				display: flex;
+				height: 100%;
+				width: 70px;
+				background-color: #39cdcc;
+				color: #ffffff;
+				align-items: center;
+				justify-content: center;
+				border-radius: 0 0 8px 0;
+
+				.icon {
+					align-items: center;
+					font-size: 20px;
+				}
+			}
+		}
+
+		.items {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			gap: 15px;
+
+			h2 {
+				font-size: 16px;
+				font-weight: 400;
+				line-height: 19px;
+				text-decoration: underline;
+			}
+
+			.item {
+				position: relative;
+				margin-right: 20px;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				gap: 10px;
+
+				.icon {
+					font-size: 20px;
+				}
+
+				.avatar {
+					width: 2rem;
+					height: 2rem;
+					border-radius: 50%;
+				}
+
+				.username {
+					font-size: 12px;
+					font-weight: bold;
+					align-items: center;
+					justify-content: center;
+				}
+			}
+		}
+	}
+}

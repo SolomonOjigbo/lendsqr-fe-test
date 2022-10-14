@@ -1,0 +1,27 @@
+.dashboard {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	background-color: #e5e5e5;
+
+	.container {
+		display: flex;
+		height: 100vh;
+		padding: 20px;
+
+		.main {
+			display: flex;
+			flex: 5;
+			flex-direction: column;
+			width: 100%;
+			border-left: 1px solid rgba(233, 233, 233, 0.6);
+			padding: 20px;
+
+			.widgets {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+		}
+	}
+}
