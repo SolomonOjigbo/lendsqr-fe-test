@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+}
+
+.App {
+  text-align: center;
+  background-color: #f3f2ef;
+}
+.app__body {
+  display: flex;
+  margin-top: 35px;
+  justify-content: space-evenly;
+}
+
