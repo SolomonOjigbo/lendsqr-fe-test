@@ -7,7 +7,6 @@
 	.container {
 		display: flex;
 		height: 100vh;
-		// padding: 20px;
 
 		.main {
 			display: flex;
@@ -16,6 +15,21 @@
 			width: 100%;
 			border-left: 1px solid rgba(233, 233, 233, 0.6);
 			padding: 20px;
+			margin-left: 40px;
+
+			.users {
+				width: 66px;
+				height: 28px;
+				left: 343px;
+				top: 160px;
+				font-family: "Work Sans";
+				font-style: normal;
+				font-weight: 500;
+				font-size: 24px;
+				line-height: 28px;
+				padding: 10px;
+				color: #213f7d;
+			}
 
 			.widgets {
 				display: flex;

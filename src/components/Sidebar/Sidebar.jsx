@@ -5,7 +5,7 @@ import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import HouseIcon from "@mui/icons-material/House";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFileClipboard, faUser } from "@fortawesome/free-regular-svg-icons";
+import { faFileClipboard } from "@fortawesome/free-regular-svg-icons";
 import {
 	faBriefcase,
 	faBuildingColumns,

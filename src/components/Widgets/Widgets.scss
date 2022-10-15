@@ -1,0 +1,45 @@
+.widgets {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	font-family: Work Sans;
+
+	.widget {
+		display: flex;
+		justify-content: space-evenly;
+		flex-direction: column;
+		height: 160px;
+		width: 250px;
+		border-radius: 4px;
+		background-color: #ffffff;
+		border: 1px solid rgba(33, 63, 125, 0.06);
+		box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+		padding: 0 10px 0 25px;
+
+		.title {
+			font-style: normal;
+			font-weight: 500;
+			font-size: 14px;
+			line-height: 16px;
+			padding: 5px 10px 0 10px;
+			text-transform: uppercase;
+			color: #545f7d;
+		}
+
+		.counter {
+			font-style: normal;
+			font-weight: 600;
+			font-size: 24px;
+			line-height: 28px;
+			padding: 0 10px 0 10px;
+			color: #213f7d;
+		}
+
+		.icon {
+			width: 1rem;
+			height: 1rem;
+			padding: 10px;
+			border-radius: 50%;
+		}
+	}
+}
