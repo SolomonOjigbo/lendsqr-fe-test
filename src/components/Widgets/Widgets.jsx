@@ -82,7 +82,6 @@ const Widgets = ({ type }) => {
 	}
 	return (
 		<div className="widgets">
-			{/* <p> USERS</p> */}
 			<div className="widget">
 				<div className="icon"> {data.icon}</div>
 				<div className="title"> {data.title} </div>

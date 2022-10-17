@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/Sidebar/Sidebar";
+import UsersTable from "../../components/Table/UsersTable";
 import Widgets from "../../components/Widgets/Widgets";
 import "./Dashboard.scss";
 
@@ -19,8 +20,7 @@ const Dashboard = () => {
 						<Widgets type="savings" />
 					</div>
 					<div className="tableContainer">
-						<div className="tableTitle">Users</div>
-						Table Data
+						<UsersTable />
 					</div>
 				</div>
 			</div>
