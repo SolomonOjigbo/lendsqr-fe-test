@@ -1,72 +1,222 @@
-import "./UsersTable.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { DataGrid, GridMoreVertIcon } from "@mui/x-data-grid";
-import { userColumns } from "../../api/usersData";
+import { DataGrid } from "@mui/x-data-grid";
+import "./UsersTable.scss";
+// import { StatusContext } from "../../context/statusContext";
+import { faEye } from "@fortawesome/free-regular-svg-icons";
+import { faUserCheck, faUserXmark } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import {
+	GridActionsCellItem,
+	GridToolbarContainer,
+	GridToolbarFilterButton,
+} from "@mui/x-data-grid";
+import { useCallback, useContext, useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 
 const UsersTable = () => {
-	const [users, setUsers] = useState([]);
-	const [status, setStatus] = useState("pending");
-	const [open, setOpen] = useState(false);
+	const [usersData, setUsersData] = useState([]);
 
 	useEffect(() => {
-		const usersData = () => {
-			const data = axios
+		const usersRows = async () => {
+			await axios
 				.get("https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users")
 				.then((res) => {
-					setUsers(res.data);
+					const data = res.data.map((user) => ({
+						...user,
+						status: "pending",
+					}));
+					localStorage.setItem("data", JSON.stringify(data));
+					setUsersData(data);
 				});
 		};
-		usersData();
+		usersRows();
 	}, []);
 
-	const openActions = (id) => {
-		setOpen(!open);
-	};
+	const navigate = useNavigate();
 
-	if (open) {
-		return (
-			<div>
-				<div>View Details</div>
-				<div>Blacklist User</div>
-				<div>Activate User</div>
-			</div>
-		);
-	}
-	const actionColumn = [
+	const viewUser = useCallback(
+		(id) => () => {
+			navigate(`users/${id}`);
+		},
+		[]
+	);
+
+	const blacklistHandler = useCallback(
+		(id) => () => {
+			setUsersData((prevUsers) =>
+				prevUsers.map((user) =>
+					user.id === id ? { ...user, status: "blacklisted" } : user
+				)
+			);
+		},
+		[]
+	);
+
+	const activateHandler = useCallback(
+		(id) => () => {
+			setUsersData((prevUsers) =>
+				prevUsers.map((user) =>
+					user.id === id ? { ...user, status: "active" } : user
+				)
+			);
+		},
+		[]
+	);
+	const userColumns = useMemo(() => [
+		{
+			field: "orgName",
+			headerName: "Organisation",
+			width: 200,
+			renderHeader: () => {
+				return (
+					<div className="columnHeader">
+						Organisation
+						<GridToolbarContainer>
+							{" "}
+							<GridToolbarFilterButton />{" "}
+						</GridToolbarContainer>
+					</div>
+				);
+			},
+		},
+		{
+			field: "userName",
+			headerName: "USERNAME",
+			width: 170,
+			renderHeader: () => {
+				return (
+					<div className="columnHeader">
+						Username
+						<GridToolbarContainer>
+							{" "}
+							<GridToolbarFilterButton />{" "}
+						</GridToolbarContainer>
+					</div>
+				);
+			},
+		},
+		{
+			field: "email",
+			headerName: "Email",
+			width: 220,
+			renderHeader: () => {
+				return (
+					<div className="columnHeader">
+						Email
+						<GridToolbarContainer>
+							{" "}
+							<GridToolbarFilterButton />{" "}
+						</GridToolbarContainer>
+					</div>
+				);
+			},
+		},
+
+		{
+			field: "phoneNumber",
+			headerName: "Phone Number",
+			width: 200,
+			renderHeader: () => {
+				return (
+					<div className="columnHeader">
+						Phone Number
+						<GridToolbarContainer>
+							{" "}
+							<GridToolbarFilterButton />{" "}
+						</GridToolbarContainer>
+					</div>
+				);
+			},
+		},
+
+		{
+			field: "createdAt",
+			headerName: "Date Joined",
+			width: 200,
+			renderCell: (params) => {
+				const dateObj = params.row.date;
+				const newDate = Intl.DateTimeFormat("en", {
+					dateStyle: "long",
+					timeStyle: "short",
+				}).format(dateObj);
+				return <>{newDate}</>;
+			},
+			renderHeader: () => {
+				return (
+					<div className="columnHeader">
+						Date Joined
+						<GridToolbarContainer>
+							{" "}
+							<GridToolbarFilterButton />{" "}
+						</GridToolbarContainer>
+					</div>
+				);
+			},
+		},
 		{
 			field: "status",
 			headerName: "Status",
-			width: 200,
+			width: 100,
+			renderHeader: () => {
+				return (
+					<div className="columnHeader">
+						Status
+						<GridToolbarContainer>
+							{" "}
+							<GridToolbarFilterButton />{" "}
+						</GridToolbarContainer>
+					</div>
+				);
+			},
 			renderCell: (params) => {
-				return <div className={`cellWithStatus ${status}`}>{status}</div>;
+				return (
+					<div className={`cellWithStatus ${params.row.status}`}>
+						{params.row.status}
+					</div>
+				);
 			},
 		},
 		{
 			field: "action",
 			headerName: "",
+			type: "actions",
 			width: 30,
-			renderCell: (params) => {
-				return (
-					<div className="cellAction">
-						<GridMoreVertIcon
-							className="cellIcon"
-							onClick={() => openActions(params.row.id)}
-						/>
-					</div>
-				);
-			},
+			getActions: (params) => [
+				<GridActionsCellItem
+					icon={<FontAwesomeIcon icon={faEye} />}
+					label="View"
+					onClick={viewUser(params.id)}
+					showInMenu
+				/>,
+				<GridActionsCellItem
+					icon={<FontAwesomeIcon icon={faUserXmark} />}
+					label="Blacklist User"
+					onClick={blacklistHandler(params.id)}
+					showInMenu
+				/>,
+				<GridActionsCellItem
+					icon={<FontAwesomeIcon icon={faUserCheck} />}
+					label="Activate User"
+					onClick={activateHandler(params.id)}
+					showInMenu
+				/>,
+			],
 		},
-	];
+	]);
 
 	return (
 		<div className="datatable">
 			<DataGrid
-				className="datagrid"
-				rows={users}
-				columns={userColumns.concat(actionColumn)}
+				rows={usersData}
+				columns={userColumns}
 				pageSize={20}
 				rowsPerPageOptions={[20, 40, 100]}
+				disableColumnMenu={true}
+				localeText={{
+					toolbarFilters: "",
+				}}
 			/>
 		</div>
 	);
