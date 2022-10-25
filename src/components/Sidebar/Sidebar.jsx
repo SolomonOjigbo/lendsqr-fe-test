@@ -3,7 +3,6 @@ import "./Sidebar.scss";
 import { Link } from "react-router-dom";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import HouseIcon from "@mui/icons-material/House";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFileClipboard } from "@fortawesome/free-regular-svg-icons";
 import {
@@ -15,6 +14,7 @@ import {
 	faFileInvoice,
 	faHandHoldingDollar,
 	faHandshake,
+	faHouseChimney,
 	faMoneyBillTransfer,
 	faPiggyBank,
 	faSackDollar,
@@ -37,7 +37,8 @@ const Sidebar = () => {
 					<KeyboardArrowDownIcon />
 				</div>
 				<div className="mainDash">
-					<HouseIcon fontSize="small" />
+					<FontAwesomeIcon icon={faHouseChimney} className="icon" />
+
 					<p> Dashboard</p>
 				</div>
 			</div>

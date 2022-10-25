@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { DataGrid } from "@mui/x-data-grid";
 import "./UsersTable.scss";
-// import { StatusContext } from "../../context/statusContext";
+
 import { faEye } from "@fortawesome/free-regular-svg-icons";
 import { faUserCheck, faUserXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -23,12 +23,12 @@ const UsersTable = () => {
 			await axios
 				.get("https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users")
 				.then((res) => {
-					const data = res.data.map((user) => ({
+					const users = res.data.map((user) => ({
 						...user,
 						status: "pending",
 					}));
-					localStorage.setItem("data", JSON.stringify(data));
-					setUsersData(data);
+					localStorage.setItem("users", JSON.stringify(users));
+					setUsersData(users);
 				});
 		};
 		usersRows();
@@ -37,7 +37,8 @@ const UsersTable = () => {
 	const navigate = useNavigate();
 
 	const viewUser = useCallback(
-		(id) => () => {
+		(id) => (e) => {
+			e.preventDefault();
 			navigate(`users/${id}`);
 		},
 		[]
@@ -64,6 +65,15 @@ const UsersTable = () => {
 		},
 		[]
 	);
+
+	useEffect(() => {
+		localStorage.setItem("users", JSON.stringify(usersData));
+	});
+
+	useEffect((id) => {
+		setUsersData(JSON.parse(localStorage.getItem("users")));
+	}, []);
+
 	const userColumns = useMemo(() => [
 		{
 			field: "orgName",
