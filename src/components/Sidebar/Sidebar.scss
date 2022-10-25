@@ -1,3 +1,12 @@
+.sidebar_container {
+	display: flex;
+	flex-direction: column;
+	background-color: white;
+	flex: 1;
+	border-right: 0.5px solid rgb(227, 227, 227);
+	position: relative;
+}
+
 .sidebar {
 	display: flex;
 	flex-direction: column;
@@ -16,6 +25,12 @@
 			align-items: center;
 			justify-content: space-between;
 			padding: 20px;
+
+			h2 {
+				color: #213f7d;
+				font-size: 16px;
+				font-weight: 400;
+			}
 		}
 
 		.mainDash {
@@ -35,12 +50,6 @@
 				text-align: left;
 				color: #213f7d;
 			}
-		}
-
-		h2 {
-			color: #213f7d;
-			font-size: 16px;
-			font-weight: 400;
 		}
 	}
 
@@ -80,6 +89,10 @@
 					background-color: #ece8ff;
 				}
 
+				&:link {
+					text-decoration: none;
+				}
+
 				.icon {
 					font-size: 16px;
 					color: #21407da1;
@@ -99,5 +112,28 @@
 		display: flex;
 		align-items: center;
 		margin: 10px;
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	.top > .organisation > p {
+		display: none;
+	}
+	.top > .organisation > .icon {
+		display: none;
+	}
+	.top > .mainDash > p {
+		display: none;
+	}
+
+	.menu > ul > li > span {
+		display: none;
+	}
+
+	.menu > ul > .title {
+		display: none;
+	}
+	.menu > ul :link > li > span {
+		display: none;
 	}
 }

@@ -115,3 +115,51 @@
 		}
 	}
 }
+
+@media screen and (max-width: 840px) {
+	.navbar > .wrapper > .logo > .union {
+		height: 20px;
+		width: 20px;
+		left: 20px;
+		top: 36px;
+	}
+
+	.navbar > .wrapper > .logo > .lendsqr {
+		height: 20px;
+		width: 70px;
+		left: 39px;
+		top: 35px;
+	}
+	.search {
+		display: none !important;
+
+		input {
+			display: none;
+		}
+		.iconContainer {
+			display: none;
+
+			.icon {
+				display: none;
+			}
+		}
+	}
+
+	.items > .item > h2 {
+		display: none;
+	}
+
+	.items > .item > .icon {
+		display: none;
+	}
+
+	.avatar {
+		width: 1.5rem;
+		height: 1.5rem;
+		border-radius: 50%;
+	}
+
+	.username {
+		display: none;
+	}
+}
