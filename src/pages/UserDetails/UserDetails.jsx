@@ -14,10 +14,8 @@ const UserDetails = () => {
 	const params = useParams();
 	const [user, setUser] = useState({});
 
-	const userInfo = () => {};
-
-	const userData = JSON.parse(localStorage.getItem("users"));
 	useEffect(() => {
+		const userData = JSON.parse(localStorage.getItem("users"));
 		if (userData) {
 			setUser(
 				userData.find((currentUser) => String(currentUser.id) === params.userId)
@@ -25,7 +23,7 @@ const UserDetails = () => {
 		} else {
 			return alert("User is not available");
 		}
-	}, []);
+	}, [params.userId]);
 
 	return (
 		<div className="userDetails">

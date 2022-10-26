@@ -15,9 +15,9 @@ function App() {
 					...user,
 					status: "pending",
 				}));
-				localStorage.setItem("data", JSON.stringify(data));
+				localStorage.setItem("users", JSON.stringify(data));
 			});
-	}, []);
+	});
 
 	return (
 		<div>
