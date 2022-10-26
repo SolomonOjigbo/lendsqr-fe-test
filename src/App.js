@@ -11,8 +11,8 @@ function App() {
 				<Routes>
 					<Route path="/">
 						<Route index element={<Login />} />
-						<Route path="users" element={<Dashboard />} />
 						<Route path=":userId" element={<UserDetails />} />
+						<Route path="users" element={<Dashboard />} />
 					</Route>
 				</Routes>
 			</BrowserRouter>
