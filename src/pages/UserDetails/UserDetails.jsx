@@ -14,11 +14,17 @@ const UserDetails = () => {
 	const params = useParams();
 	const [user, setUser] = useState({});
 
+	const userInfo = () => {};
+
+	const userData = JSON.parse(localStorage.getItem("users"));
 	useEffect(() => {
-		const userData = JSON.parse(localStorage.getItem("users"));
-		setUser(
-			userData.find((currentUser) => String(currentUser.id) === params.userId)
-		);
+		if (userData) {
+			setUser(
+				userData.find((currentUser) => String(currentUser.id) === params.userId)
+			);
+		} else {
+			return alert("User is not available");
+		}
 	}, []);
 
 	return (
