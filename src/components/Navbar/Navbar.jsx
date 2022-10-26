@@ -6,14 +6,17 @@ import Logo from "../../assests/logo.png";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
 	return (
 		<div className="navbar">
 			<div className="wrapper">
 				<div className="logo">
-					<img src={Union} alt="" className="union" />
-					<img src={Logo} alt="" className="lendsqr" />
+					<Link to="/">
+						<img src={Union} alt="" className="union" />
+						<img src={Logo} alt="" className="lendsqr" />
+					</Link>
 				</div>
 				<div className="search">
 					<input type="text" placeholder="Search for anything" />

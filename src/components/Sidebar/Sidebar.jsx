@@ -49,7 +49,7 @@ const Sidebar = () => {
 				<div className="menu">
 					<ul>
 						<p className="title">CUSTOMERS</p>
-						<Link to="/" style={{ textDecoration: "none" }}>
+						<Link to="/users" style={{ textDecoration: "none" }}>
 							<li>
 								<FontAwesomeIcon icon={faUserGroup} className="icon" />
 								<span>Users</span>
