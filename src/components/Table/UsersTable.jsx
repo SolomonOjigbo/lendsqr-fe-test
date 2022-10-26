@@ -27,6 +27,7 @@ const UsersTable = () => {
 						...user,
 						status: "pending",
 					}));
+					localStorage.clear("users");
 					localStorage.setItem("users", JSON.stringify(users));
 					setUsersData(users);
 				});
