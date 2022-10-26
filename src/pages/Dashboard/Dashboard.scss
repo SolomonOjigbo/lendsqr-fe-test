@@ -19,9 +19,7 @@
 
 			.users {
 				width: 66px;
-				height: 28px;
-				left: 343px;
-				top: 160px;
+
 				font-family: "Work Sans";
 				font-style: normal;
 				font-weight: 500;
@@ -33,8 +31,19 @@
 
 			.widgets {
 				display: flex;
-				justify-content: space-between;
+				justify-content: space-around;
 				align-items: center;
+
+				.left {
+					display: flex;
+					justify-content: space-between;
+					gap: 20px;
+				}
+				.right {
+					display: flex;
+					justify-content: space-between;
+					gap: 20px;
+				}
 			}
 
 			.tableContainer {
@@ -42,5 +51,51 @@
 				padding-top: 30px;
 			}
 		}
+	}
+}
+
+@media screen and (max-width: 1300px) {
+	.widgets {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: center;
+		gap: 20px;
+	}
+
+	.tableContainer {
+		width: 60%;
+		padding-top: 30px;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.widgets {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: center;
+		gap: 20px;
+		.left {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			gap: 20px;
+		}
+		.right {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			gap: 20px;
+		}
+	}
+
+	.tableContainer {
+		width: 50%;
+		padding-top: 30px;
+		justify-content: center;
+		align-items: center;
 	}
 }

@@ -14,10 +14,14 @@ const Dashboard = () => {
 				<div className="main">
 					<p className="users">Users</p>
 					<div className="widgets">
-						<Widgets type="allUsers" />
-						<Widgets type="activeUsers" />
-						<Widgets type="loans" />
-						<Widgets type="savings" />
+						<div className="left">
+							<Widgets type="allUsers" />
+							<Widgets type="activeUsers" />
+						</div>
+						<div className="right">
+							<Widgets type="loans" />
+							<Widgets type="savings" />
+						</div>
 					</div>
 					<div className="tableContainer">
 						<UsersTable />

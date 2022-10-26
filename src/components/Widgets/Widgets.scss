@@ -43,3 +43,18 @@
 		}
 	}
 }
+
+@media screen and (max-width: 480px) {
+	.widget {
+		display: flex;
+		justify-content: space-evenly;
+		flex-direction: column;
+		height: 100px;
+		width: 150px;
+		border-radius: 4px;
+		background-color: #ffffff;
+		border: 1px solid rgba(33, 63, 125, 0.06);
+		box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+		padding: 0 10px 0 25px;
+	}
+}
