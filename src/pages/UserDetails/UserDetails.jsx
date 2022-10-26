@@ -4,9 +4,11 @@ import StarBorderIcon from "@mui/icons-material/StarBorder";
 import Navbar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import "./UserDetails.scss";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
+import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const UserDetails = () => {
 	const params = useParams();
@@ -26,6 +28,12 @@ const UserDetails = () => {
 			<div className="container">
 				<Sidebar />
 				<div className="main">
+					<div className="back_link">
+						<Link to="/users">
+							<FontAwesomeIcon icon={faArrowLeftLong} className="arrow" />
+						</Link>
+						<span>Back to Users</span>
+					</div>
 					<div className="user_header">
 						<p className="users">User Details</p>
 						<div className="statusButtons">

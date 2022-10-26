@@ -39,7 +39,7 @@ const UsersTable = () => {
 	const viewUser = useCallback(
 		(id) => (e) => {
 			e.preventDefault();
-			navigate(`users/${id}`);
+			navigate(`/${id}`);
 		},
 		[]
 	);
