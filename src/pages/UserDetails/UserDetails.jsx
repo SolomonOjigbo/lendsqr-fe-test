@@ -17,10 +17,10 @@ const UserDetails = () => {
 	useEffect(() => {
 		const userData = JSON.parse(localStorage.getItem("users"));
 		setUser(
-			userData.find((currentUser) => String(currentUser.id) === params.userId)
+			userData?.find((currentUser) => String(currentUser.id) === params.userId)
 		);
 		console.log(user);
-	}, [user]);
+	}, []);
 
 	return (
 		<div className="userDetails">

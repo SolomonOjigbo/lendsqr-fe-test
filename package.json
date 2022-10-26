@@ -2,6 +2,7 @@
 	"name": "lendsqr-admin-dashboard",
 	"version": "0.1.0",
 	"private": true,
+	"homepage": "https://SolomonOjigbo.github.io/lendsqr-fe-test",
 	"dependencies": {
 		"@emotion/react": "^11.9.0",
 		"@emotion/styled": "^11.8.1",
@@ -18,7 +19,6 @@
 		"axios": "^1.1.3",
 		"framer-motion": "^7.6.1",
 		"react": "^18.0.0",
-		"react-circular-progressbar": "^2.0.4",
 		"react-dom": "^18.0.0",
 		"react-router-dom": "^6.2.2",
 		"react-scripts": "5.0.0",
@@ -26,6 +26,8 @@
 		"web-vitals": "^2.1.0"
 	},
 	"scripts": {
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d build",
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
@@ -48,5 +50,8 @@
 			"last 1 firefox version",
 			"last 1 safari version"
 		]
+	},
+	"devDependencies": {
+		"gh-pages": "^4.0.0"
 	}
 }
