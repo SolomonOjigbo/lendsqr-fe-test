@@ -48,7 +48,7 @@ const UserDetails = () => {
 					<div className="profile_header">
 						<div className="top">
 							<div className="user">
-								<img src={user?.profile?.avatar} alt={user?.userName} />
+								<img src={user.profile?.avatar} alt={user?.userName} />
 								<span>
 									<ul>
 										<li className="username">
