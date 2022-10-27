@@ -16,13 +16,10 @@ const UserDetails = () => {
 
 	useEffect(() => {
 		const userData = JSON.parse(localStorage.getItem("users"));
-		if (userData) {
-			setUser(
-				userData.find((currentUser) => String(currentUser.id) === params.userId)
-			);
-		} else {
-			return alert("User is not available");
-		}
+
+		setUser(
+			userData.find((currentUser) => String(currentUser.id) === params.userId)
+		);
 	}, [params.userId]);
 
 	return (
@@ -48,11 +45,11 @@ const UserDetails = () => {
 					<div className="profile_header">
 						<div className="top">
 							<div className="user">
-								<img src={user.profile?.avatar} alt={user?.userName} />
+								<img src={user?.profile?.avatar} alt={user?.userName} />
 								<span>
 									<ul>
 										<li className="username">
-											{user.profile?.firstName} {user.profile?.lastName}
+											{user?.profile?.firstName} {user?.profile?.lastName}
 										</li>
 										<li className="account_id">{user?.userName}</li>
 									</ul>
@@ -101,13 +98,13 @@ const UserDetails = () => {
 								<ul>
 									<li className="field">FULL NAME</li>
 									<li className="value">
-										{user.profile?.firstName} {user.profile?.lastName}
+										{user?.profile?.firstName} {user?.profile?.lastName}
 									</li>
 								</ul>
 
 								<ul>
 									<li className="field">Phone Number</li>
-									<li className="value">{user.profile?.phoneNumber}</li>
+									<li className="value">{user?.profile?.phoneNumber}</li>
 								</ul>
 								<ul>
 									<li className="field">Email Address</li>
@@ -115,18 +112,18 @@ const UserDetails = () => {
 								</ul>
 								<ul>
 									<li className="field">BVN</li>
-									<li className="value">{user.profile?.bvn}</li>
+									<li className="value">{user?.profile?.bvn}</li>
 								</ul>
 							</div>
 							<div className="bottom">
 								<ul>
 									<li className="field">Contact Address</li>
-									<li className="value">{user.profile?.address}</li>
+									<li className="value">{user?.profile?.address}</li>
 								</ul>
 
 								<ul>
 									<li className="field">Gender</li>
-									<li className="value">{user.profile?.gender}</li>
+									<li className="value">{user?.profile?.gender}</li>
 								</ul>
 								<ul>
 									<li className="field">Company</li>
@@ -139,40 +136,40 @@ const UserDetails = () => {
 								<div className="top">
 									<ul>
 										<li className="field">Level of Education</li>
-										<li className="value">{user.education?.level}</li>
+										<li className="value">{user?.education?.level}</li>
 									</ul>
 									<ul>
 										<li className="field">Employment Status</li>
 										<li className="value">
 											{" "}
-											{user.education?.employmentStatus}{" "}
+											{user?.education?.employmentStatus}{" "}
 										</li>
 									</ul>
 									<ul>
 										<li className="field">SECTOR OF EMPLOYMENT</li>
-										<li className="value">{user.education?.sector}</li>
+										<li className="value">{user?.education?.sector}</li>
 									</ul>
 									<ul>
 										<li className="field">DURATION OF EMPLOYMENT</li>
-										<li className="value">{user.education?.duration}</li>
+										<li className="value">{user?.education?.duration}</li>
 									</ul>
 								</div>
 								<div className="bottom">
 									<ul>
 										<li className="field">MONTHLY INCOME</li>
 										<li className="value">
-											{user.education?.monthlyIncome[0]}
+											{user?.education?.monthlyIncome[0]}
 											{", "}
-											{user.education?.monthlyIncome[1]}
+											{user?.education?.monthlyIncome[1]}
 										</li>
 									</ul>
 									<ul>
 										<li className="field">LOAN REPAYMENT</li>
-										<li className="value">{user.education?.loanRepayment}</li>
+										<li className="value">{user?.education?.loanRepayment}</li>
 									</ul>
 									<ul>
 										<li className="field">OFFICE EMAIL</li>
-										<li className="value">{user.education?.officeEmail}</li>
+										<li className="value">{user?.education?.officeEmail}</li>
 									</ul>
 								</div>
 								<div className="seperator"></div>
@@ -182,15 +179,15 @@ const UserDetails = () => {
 								<div className="top">
 									<ul>
 										<li className="field">TWITTER</li>
-										<li className="value"> {user.socials?.twitter} </li>
+										<li className="value"> {user?.socials?.twitter} </li>
 									</ul>
 									<ul>
 										<li className="field">FACEBOOK</li>
-										<li className="value">{user.socials?.facebook} </li>
+										<li className="value">{user?.socials?.facebook} </li>
 									</ul>
 									<ul>
 										<li className="field">INSTAGRAM</li>
-										<li className="value"> {user.socials?.instagram} </li>
+										<li className="value"> {user?.socials?.instagram} </li>
 									</ul>
 								</div>
 								<div className="seperator"></div>
@@ -201,12 +198,12 @@ const UserDetails = () => {
 									<ul>
 										<li className="field">FULL NAME</li>
 										<li className="value">
-											{user.guarantor?.firstName} {user.guarantor?.lastName}
+											{user?.guarantor?.firstName} {user?.guarantor?.lastName}
 										</li>
 									</ul>
 									<ul>
 										<li className="field"> PHONE NUMBER</li>
-										<li className="value">{user.guarantor?.phoneNumber}</li>
+										<li className="value">{user?.guarantor?.phoneNumber}</li>
 									</ul>
 									<ul>
 										<li className="field">EMAIL ADDRESS</li>
@@ -214,7 +211,7 @@ const UserDetails = () => {
 									</ul>
 									<ul>
 										<li className="field">ADDRESS</li>
-										<li className="value">{user.guarantor?.address}</li>
+										<li className="value">{user?.guarantor?.address}</li>
 									</ul>
 								</div>
 
@@ -223,12 +220,12 @@ const UserDetails = () => {
 									<ul>
 										<li className="field">FULL NAME</li>
 										<li className="value">
-											{user.guarantor?.firstName} {user.guarantor?.lastName}
+											{user?.guarantor?.firstName} {user?.guarantor?.lastName}
 										</li>
 									</ul>
 									<ul>
 										<li className="field"> PHONE NUMBER</li>
-										<li className="value">{user.guarantor?.phoneNumber}</li>
+										<li className="value">{user?.guarantor?.phoneNumber}</li>
 									</ul>
 									<ul>
 										<li className="field">EMAIL ADDRESS</li>
@@ -236,7 +233,7 @@ const UserDetails = () => {
 									</ul>
 									<ul>
 										<li className="field">ADDRESS</li>
-										<li className="value">{user.guarantor?.address}</li>
+										<li className="value">{user?.guarantor?.address}</li>
 									</ul>
 								</div>
 							</div>

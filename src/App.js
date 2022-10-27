@@ -23,10 +23,12 @@ function App() {
 		<div>
 			<BrowserRouter>
 				<Routes>
-					<Route path="/">
+					<Route exact path="/">
 						<Route index element={<Login />} />
-						<Route path="users" element={<Dashboard />} />
-						<Route path=":userId" element={<UserDetails />} />
+						<Route path="users">
+							<Route index element={<Dashboard />} />
+							<Route path=":userId" element={<UserDetails />} />
+						</Route>
 					</Route>
 				</Routes>
 			</BrowserRouter>

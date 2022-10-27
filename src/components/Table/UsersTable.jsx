@@ -12,7 +12,7 @@ import {
 	GridToolbarContainer,
 	GridToolbarFilterButton,
 } from "@mui/x-data-grid";
-import { useCallback, useContext, useMemo } from "react";
+import { useCallback, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 
 const UsersTable = () => {
@@ -27,7 +27,7 @@ const UsersTable = () => {
 						...user,
 						status: "pending",
 					}));
-					localStorage.clear("users");
+
 					localStorage.setItem("users", JSON.stringify(users));
 					setUsersData(users);
 				});
@@ -40,7 +40,7 @@ const UsersTable = () => {
 	const viewUser = useCallback(
 		(id) => (e) => {
 			e.preventDefault();
-			navigate(`/${id}`);
+			navigate(`/users/${id}`);
 		},
 		[]
 	);
