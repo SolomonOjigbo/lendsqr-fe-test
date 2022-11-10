@@ -28,7 +28,7 @@ const Login = () => {
 			<div className="right">
 				<div className="heading">
 					<h1>Welcome!</h1>
-					<p>Enter details to login</p>
+					<p>Enter details to login: username: admin password: admin</p>
 				</div>
 
 				<Box component="form" noValidate sx={{ width: 500, pl: 12 }}>
